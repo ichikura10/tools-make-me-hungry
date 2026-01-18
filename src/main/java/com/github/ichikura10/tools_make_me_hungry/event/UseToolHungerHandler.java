@@ -16,8 +16,10 @@ public class UseToolHungerHandler {
         Player player = event.getPlayer();
 
         if (!(player.level().isClientSide())) {
-            if (player.getMainHandItem().getItem() instanceof TieredItem) {
-                HungerUtil.apply(player);
+            if (!(player.isCreative())) {
+                if (player.getMainHandItem().getItem() instanceof TieredItem) {
+                    HungerUtil.apply(player);
+                }
             }
         }
     }
