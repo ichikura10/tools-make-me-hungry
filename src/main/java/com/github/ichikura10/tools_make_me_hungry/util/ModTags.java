@@ -8,9 +8,7 @@ import net.minecraft.world.item.Item;
 
 public class ModTags {
     public static class Items {
-        public static final TagKey<Item> HUNGER_ITEMS = tag("hunger_items");
         public static final TagKey<Item> HUNGER_TOOLS = tag("hunger_tools");
-
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(ToolsMakeMeHungry.MOD_ID, name));
