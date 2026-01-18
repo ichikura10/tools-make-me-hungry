@@ -11,7 +11,7 @@ public class HungerUtil {
 
         if (food.getFoodLevel() == 0) {
             player.setHealth(1);
-            player.hurt(createSource(player), Float.MAX_VALUE);
+            player.hurt(createSource(player), Integer.MAX_VALUE);
         }
         else {
             food.eat(-1, 0.0F);
