@@ -1,6 +1,5 @@
 {
   "exhaustion": 0.0,
   "message_id": "tool_hungry",
-  "scaling": "always",
-  "bypass_armor": true
+  "scaling": "always"
 }
