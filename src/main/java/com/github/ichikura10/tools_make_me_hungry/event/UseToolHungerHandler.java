@@ -1,9 +1,10 @@
 package com.github.ichikura10.tools_make_me_hungry.event;
 
 import com.github.ichikura10.tools_make_me_hungry.ToolsMakeMeHungry;
+import com.github.ichikura10.tools_make_me_hungry.util.HungerUtil;
+import com.github.ichikura10.tools_make_me_hungry.util.ModTags;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodData;
-import net.minecraft.world.item.TieredItem;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -16,18 +17,20 @@ public class UseToolHungerHandler {
         Player player = event.getPlayer();
 
         if (!(player.level().isClientSide())) {
-            if (player.getMainHandItem().getItem() instanceof TieredItem) {
-
-                FoodData food = player.getFoodData();
-
-                if (food.getFoodLevel() == 0) {
-                    player.kill();
-                }
-
-                else {
-                    food.eat(-1, 0.0F);
-                }
+            if (player.getMainHandItem().is(ModTags.Items.HUNGER_TOOLS)) {
+                HungerUtil.apply(player);
             }
         }
     }
+
+    @SubscribeEvent
+        public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
+            Player player = event.getEntity();
+
+            if (!(player.level().isClientSide())) {
+                if (event.getItemStack().is(ModTags.Items.HUNGER_ITEMS)){
+                    HungerUtil.apply(player);
+                }
+            }
+        }
 }
