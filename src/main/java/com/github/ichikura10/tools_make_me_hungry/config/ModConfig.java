@@ -8,7 +8,6 @@ public class ModConfig {
 
     public static ForgeConfigSpec.IntValue HUNGER_COST;
     public static ForgeConfigSpec.BooleanValue KILL_AT_ZERO;
-    public static ForgeConfigSpec.BooleanValue IGNORE_CREATIVE;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -22,10 +21,6 @@ public class ModConfig {
         KILL_AT_ZERO = builder
                 .comment("Kill the player when hunger reaches 0\nDefault: true\nOnly true or false")
                 .define("killAtZero", true);
-
-        IGNORE_CREATIVE = builder
-                .comment("If true, creative mode players are ignored\nDefault: true\nOnly true or false")
-                .define("ignoreCreative", true);
 
         builder.pop();
 

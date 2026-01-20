@@ -1,7 +1,6 @@
 package com.github.ichikura10.tools_make_me_hungry.event;
 
 import com.github.ichikura10.tools_make_me_hungry.ToolsMakeMeHungry;
-import com.github.ichikura10.tools_make_me_hungry.config.ModConfig;
 import com.github.ichikura10.tools_make_me_hungry.util.HungerUtil;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TieredItem;
@@ -20,7 +19,7 @@ public class UseToolHungerHandler {
             return;
         }
 
-        if (ModConfig.IGNORE_CREATIVE.get() && player.isCreative()) {
+        if (player.isCreative()) {
             return;
         }
 
